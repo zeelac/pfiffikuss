@@ -1,12 +1,22 @@
+var h1;
+var x,y, zaehler, xadd;
+
 function setup() {
-    frameRate(3);
-    var h1 = selectAll("h1");
-    var x = 100;
-    var y = 100;
+    h1 = select("h1");
+    x = 0;
+    y = 0;
+    xadd = 1;
 }
 
 function draw() {
     h1.position(x, y);
-    x += 1;
-    y += 1;
+
+    x += xadd;
+    
+    if (x > windowWidth) {
+        xadd *= -1;
+        y += 10;
+    } else if (x < 0) {
+        xadd *= -1;
+    }
 }
